@@ -8,12 +8,22 @@ public class UserRegistrationTest {
 
     @Test
     public void WhenName_IsProvide_ShouldReturnTrue() {
-        boolean correctResult = userRegistration.validateName( "Siddhesh" );
-        Assert.assertTrue( correctResult );
+        boolean correctName = userRegistration.validateName( "Siddhesh" );
+        Assert.assertTrue( correctName );
     }
     @Test
     public void WhenWrongName_IsProvided_ShouldReturnFalse() {
-        boolean wrongResult=userRegistration.validateName("Siddhesh@" );
-        Assert.assertFalse( wrongResult );
+        boolean wrongName = userRegistration.validateName( "Siddhesh@" );
+        Assert.assertFalse( wrongName );
+    }
+    @Test
+    public void WhenLastName_IsProvide_ShouldReturnTrue() {
+        boolean correctLastName = userRegistration.validateName( "Thakur" );
+        Assert.assertTrue( correctLastName );
+    }
+    @Test
+    public void WhenLastName_IsProvide_ShouldReturnFalse() {
+        boolean wrongLastName = userRegistration.validateName( "Thakur@" );
+        Assert.assertFalse( wrongLastName );
     }
 }

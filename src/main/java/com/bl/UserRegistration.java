@@ -9,6 +9,6 @@ public class UserRegistration {
 
     public boolean validateName(String name) {
         Matcher matcher = NAME_PATTERN.matcher( name );
-        return matcher.matches(); 
+        return matcher.matches();
     }
 }
