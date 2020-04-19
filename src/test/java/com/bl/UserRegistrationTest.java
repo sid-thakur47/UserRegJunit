@@ -36,4 +36,4 @@ public class UserRegistrationTest {
         boolean WrongEmail = userRegistration.validateEmail( "@gmail.com" );
         Assert.assertFalse( WrongEmail );
     }
-}
+}  
