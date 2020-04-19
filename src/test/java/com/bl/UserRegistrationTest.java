@@ -17,4 +17,3 @@ public class UserRegistrationTest {
         Assert.assertFalse( wrongResult );
     }
 }
-
