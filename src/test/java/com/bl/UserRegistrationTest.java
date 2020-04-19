@@ -22,8 +22,18 @@ public class UserRegistrationTest {
         Assert.assertTrue( correctLastName );
     }
     @Test
-    public void WhenLastName_IsProvide_ShouldReturnFalse() {
+    public void WhenWrongLastName_IsProvide_ShouldReturnFalse() {
         boolean wrongLastName = userRegistration.validateName( "Thakur@" );
         Assert.assertFalse( wrongLastName );
+    }
+    @Test
+    public void WhenRightEmail_IsProvide_ShouldReturnTrue() {
+        boolean rightEmail = userRegistration.validateEmail( "siddd-thakur47@gmail.com" );
+        Assert.assertTrue( rightEmail );
+    }
+    @Test
+    public void WhenWrongEmail_IsProvide_ShouldReturnFalse() {
+        boolean WrongEmail = userRegistration.validateEmail( "@gmail.com" );
+        Assert.assertFalse( WrongEmail );
     }
 }
