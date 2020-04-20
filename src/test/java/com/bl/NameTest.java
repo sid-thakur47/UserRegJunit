@@ -41,15 +41,4 @@ public class NameTest {
         boolean wrongName = userRegistration.validateName( name );
         Assert.assertFalse( wrongName );
     }
-
-    @Test
-    public void WhenLastName_IsProvide_ShouldReturnTrue() {
-        boolean correctLastName = userRegistration.validateName( name );
-        Assert.assertTrue( correctLastName );
-    }
-    @Test
-    public void WhenLastName_IsProvide_ShouldReturnFalse() {
-        boolean wrongLastName = userRegistration.validateName( name );
-        Assert.assertFalse( wrongLastName );
-    }
 }
