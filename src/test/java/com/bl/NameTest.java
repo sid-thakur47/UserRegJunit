@@ -12,44 +12,45 @@ import java.util.Collection;
 public class NameTest {
 
     public String name;
+    public boolean valid;
 
     UserRegistration userRegistration = new UserRegistration();
 
-    public NameTest(String name) {
+    public NameTest(String name, boolean valid) {
         this.name = name;
+        this.valid = valid;
     }
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList( new Object[][]{
-                {"Siddhesh"},
-                {"Ramesh"},
-                {"siddhesh"},
-                {"ramesh"},
-                {"Thakur"},
-                {"Koli"},
-                {"thaku@r"},
-                {"koli@"},
+                {"Siddhesh", true},
+                {"Siddhesh", true},
+                {"Ramesh", true},
+                {"siddhesh", false},
+                {"ramesh", false},
+                {"Thakur", true},
+                {"Koli", true},
+                {"thakur@", false},
+                {"koli@", false},
         } );
     }
     @Test
     public void WhenName_IsProvide_ShouldReturnTrue() {
         boolean correctName = userRegistration.validateName( name );
-        Assert.assertTrue( correctName );
-    }
-    @Test
-    public void WhenWrongName_IsProvided_ShouldReturnFalse() {
-        boolean wrongName = userRegistration.validateName( name );
-        Assert.assertFalse( wrongName );
+        if (valid) {
+            Assert.assertTrue( correctName );
+        } else {
+            Assert.assertFalse( correctName );
+        }
     }
 
     @Test
-    public void WhenLastName_IsProvide_ShouldReturnTrue() {
+    public void WhenLastName_IsProvide_ShouldReturnAsPerCondition() {
         boolean correctLastName = userRegistration.validateName( name );
-        Assert.assertTrue( correctLastName );
-    }
-    @Test
-    public void WhenWrongLastName_IsProvided_ShouldReturnFalse() {
-        boolean wrongLastName = userRegistration.validateName( name );
-        Assert.assertFalse( wrongLastName );
+        if (valid) {
+            Assert.assertTrue( correctLastName );
+        } else {
+            Assert.assertFalse( correctLastName );
+        }
     }
 }
