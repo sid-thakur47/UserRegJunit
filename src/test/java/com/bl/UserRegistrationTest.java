@@ -28,7 +28,7 @@ public class UserRegistrationTest {
     }
     @Test
     public void WhenCorrectPassword_IsProvided_ShouldReturnTrue() {
-        boolean password = userRegistration.validatePassword( "Siddhesh" );
+        boolean password = userRegistration.validatePassword( "Siddhesh1" );
         Assert.assertTrue( password );
     }
 
