@@ -28,6 +28,10 @@ public class NameTest {
                 {"Ramesh", true},
                 {"siddhesh", false},
                 {"ramesh", false},
+                {"Thakur", true},
+                {"Koli", true},
+                {"thakur@", false},
+                {"koli@", false},
         } );
     }
     @Test
@@ -37,6 +41,16 @@ public class NameTest {
             Assert.assertTrue( correctName );
         } else {
             Assert.assertFalse( correctName );
+        }
+    }
+
+    @Test
+    public void WhenLastName_IsProvide_ShouldReturnAsPerCondition() {
+        boolean correctLastName = userRegistration.validateName( name );
+        if (valid) {
+            Assert.assertTrue( correctLastName );
+        } else {
+            Assert.assertFalse( correctLastName );
         }
     }
 }
