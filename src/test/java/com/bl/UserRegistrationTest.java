@@ -28,13 +28,13 @@ public class UserRegistrationTest {
     }
     @Test
     public void WhenCorrectPassword_IsProvided_ShouldReturnTrue() {
-        boolean password = userRegistration.validatePassword( "siddhesh" );
+        boolean password = userRegistration.validatePassword( "Siddhesh" );
         Assert.assertTrue( password );
     }
 
     @Test
     public void WhenWrongPassword_IsProvided_ShouldReturnFalse() {
-        boolean WrongPassword = userRegistration.validatePassword( "sid" );
+        boolean WrongPassword = userRegistration.validatePassword( "ssss123" );
         Assert.assertFalse( WrongPassword );
     }
 }
