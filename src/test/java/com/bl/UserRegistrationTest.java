@@ -9,14 +9,14 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(value = Parameterized.class)
-public class NameTest {
+public class UserRegistrationTest {
 
     public String name;
     public boolean valid;
 
     UserRegistration userRegistration = new UserRegistration();
 
-    public NameTest(String name, boolean valid) {
+    public UserRegistrationTest(String name, boolean valid) {
         this.name = name;
         this.valid = valid;
     }
@@ -52,5 +52,10 @@ public class NameTest {
         } else {
             Assert.assertFalse( correctLastName );
         }
+    }
+    @Test
+    public void WhenEmail_IsProvided_ShouldReturnTrue() {
+        boolean email = userRegistration.validateEmail( "siddhesh@gmail.com" );
+        Assert.assertTrue( email );
     }
 }
