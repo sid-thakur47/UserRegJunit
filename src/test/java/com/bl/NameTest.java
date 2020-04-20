@@ -12,30 +12,31 @@ import java.util.Collection;
 public class NameTest {
 
     public String name;
+    public boolean valid;
 
     UserRegistration userRegistration = new UserRegistration();
 
-    public NameTest(String name) {
+    public NameTest(String name, boolean valid) {
         this.name = name;
+        this.valid = valid;
     }
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList( new Object[][]{
-                {"Siddhesh"},
-                {"Siddhesh"},
-                {"Ramesh"},
-                {"siddhesh"},
-                {"ramesh"},
+                {"Siddhesh", true},
+                {"Siddhesh", true},
+                {"Ramesh", true},
+                {"siddhesh", false},
+                {"ramesh", false},
         } );
     }
     @Test
     public void WhenName_IsProvide_ShouldReturnTrue() {
         boolean correctName = userRegistration.validateName( name );
-        Assert.assertTrue( correctName );
-    }
-    @Test
-    public void WhenWrongName_IsProvided_ShouldReturnFalse() {
-        boolean wrongName = userRegistration.validateName( name );
-        Assert.assertFalse( wrongName );
+        if (valid) {
+            Assert.assertTrue( correctName );
+        } else {
+            Assert.assertFalse( correctName );
+        }
     }
 }
