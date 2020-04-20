@@ -49,11 +49,11 @@ public class EmailTest {
 
     @Test
     public void WhenRightEmail_IsProvide_ShouldReturnTrue() {
-        boolean Email = userRegistration.validateEmail( email );
+        boolean correctEmail = userRegistration.validateEmail( email );
         if (testEmail) {
-            Assert.assertTrue( Email );
+            Assert.assertTrue( correctEmail );
         } else {
-            Assert.assertFalse( Email );
+            Assert.assertFalse( correctEmail );
         }
     }
 }
