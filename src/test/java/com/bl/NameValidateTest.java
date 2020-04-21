@@ -36,21 +36,21 @@ public class NameValidateTest {
     }
     @Test
     public void WhenName_IsProvide_ShouldReturnTrue() {
-        boolean correctName = userRegistration.validateName( name );
+        boolean firstName = userRegistration.validateName( name );
         if (valid) {
-            Assert.assertTrue( correctName );
+            Assert.assertTrue( firstName );
         } else {
-            Assert.assertFalse( correctName );
+            Assert.assertFalse( firstName );
         }
     }
 
     @Test
     public void WhenLastName_IsProvide_ShouldReturnAsPerCondition() {
-        boolean correctLastName = userRegistration.validateName( name );
+        boolean lastName = userRegistration.validateName( name );
         if (valid) {
-            Assert.assertTrue( correctLastName );
+            Assert.assertTrue( lastName );
         } else {
-            Assert.assertFalse( correctLastName );
+            Assert.assertFalse( lastName );
         }
     }
 }

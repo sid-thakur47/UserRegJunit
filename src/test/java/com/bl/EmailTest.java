@@ -13,7 +13,6 @@ public class EmailTest {
 
     public String email;
     boolean testEmail;
-    UserRegistration userRegistration = new UserRegistration();
 
     public EmailTest(String email, boolean testEmail) {
         this.email = email;
@@ -21,9 +20,8 @@ public class EmailTest {
     }
 
     @Parameterized.Parameters
-    public static Collection<Object[]> data() {
+    public static Collection<Object[]> emailList() {
         return Arrays.asList( new Object[][]{
-
                 {"abc@yahoo.com", true},
                 {"abc-100@yahoo.com", true},
                 {"abc.100@yahoo.com", true},
@@ -49,11 +47,12 @@ public class EmailTest {
 
     @Test
     public void WhenRightEmail_IsProvide_ShouldReturnTrue() {
-        boolean correctEmail = userRegistration.validateEmail( email );
+        UserRegistration userRegistration = new UserRegistration();
+        boolean emailValue = userRegistration.validateEmail( email );
         if (testEmail) {
-            Assert.assertTrue( correctEmail );
+            Assert.assertTrue( emailValue );
         } else {
-            Assert.assertFalse( correctEmail );
+            Assert.assertFalse( emailValue );
         }
     }
 }
